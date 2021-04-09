@@ -1,0 +1,4 @@
+*.DS_Store
+env/
+/tarea1/__pycache__/
+/polls/__pycache__/

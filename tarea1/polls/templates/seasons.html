@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 1</title>
+    <link crossorigin="anonymous"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
+          integrity="sha256-8B1OaG0zT7uYA572S2xOxWACq9NXYPQ+U5kHPV1bJN4="
+          rel="stylesheet"/>
+</head>
+<body>
+<nav aria-label="main navigation" class="navbar is-light" role="navigation">
+    <div class="navbar-brand">
+        <div class="navbar-item">
+            <strong style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:large;">Tarea 1 - Breaking Bad & Better Call Saul</strong>
+        </div>
+        <div class="navbar-item">
+            <p>
+                <form action="{% url 'Search View' %}" method="get">
+                    <input type="search" size="100" name="search" placeholder="Search characters"> <button type="submit">Search</button>
+                </form>
+            </p>
+        </div>
+    </div>
+</nav>
+
+
+<div style="display:flex; flex-direction: row; background-color: #3b3b3b; height: 95vh; text-align: center;">
+    <table class="table is-striped is-bordered" style="width: 20%; height: 30%; margin: 5%; margin-left: 23%;">
+        <thead>
+            <tr>
+                <th><strong>Breaking Bad</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for season_bb in seasons_bb %}
+            <tr>
+                <th><a href="/episodesBB/{{season_bb}}" class="btn btn-success">Season {{ season_bb }}</a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <table class="table is-striped is-bordered" style="width: 20%; height: 30%; margin: 5%;">
+        <thead>
+            <tr>
+                <th>Better Call Saul</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for season_bcs in seasons_bcs %}
+            <tr>
+                <th><a href="/episodesBCS/{{season_bcs}}" class="btn btn-success">Season {{ season_bcs }}</a></th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+
+
+<!-- <table class="table is-fullwidth is-striped is-bordered">
+    <thead>
+    <tr>
+        <th>Breaking Bad</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for season_bb in seasons_bb %}
+    <tr>
+        <th> Season {{ season_bb }}</th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<table class="table is-fullwidth is-striped is-bordered">
+    <thead>
+    <tr>
+        <th>Better Call Saul</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for season_bcs in seasons_bcs %}
+    <tr>
+        <th>Season {{ season_bcs }}</th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table> -->
