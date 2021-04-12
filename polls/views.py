@@ -55,11 +55,25 @@ def get_episode(request, title):
     url = "https://tarea-1-breaking-bad.herokuapp.com/api/episodes"
     r = requests.get(url, headers={'Authorization':'Bearer %s' % 'access_token'})
     episodes = r.json()
+    context = ''
     for i in range(len(episodes)):
         if episodes[i]['title'].lower() == title.lower():
             context = {
                 'episode' : episodes[i]
             }
+    if context == '':
+        title2 = title.lower().split()
+        for i in range(len(episodes)):
+            episode = episodes[i]['title'].lower().split()
+            k = 0
+            if len(title2) < len(episode):
+                for j in range (len(title2)):
+                    if title2[j] == episode[j]:
+                        k += 1
+            if k == len(title2):
+                context = {
+                    'episode' : episodes[i]
+                }
     return render(request, 'episode.html', context)
 
 def get_character(request, name):
