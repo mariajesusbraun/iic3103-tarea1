@@ -35,6 +35,8 @@ def get_episodes_bb(request, season):
             episodes_names_list.append(episodes[i]['title'])
     context = {
         'episodes' : episodes_names_list,
+        'season' : season,
+        'serie' : 'Breaking Bad'
     }
     return render(request, 'episodes.html', context)
 
@@ -48,6 +50,8 @@ def get_episodes_bcs(request, season):
             episodes_names_list.append(episodes[i]['title'])
     context = {
         'episodes' : episodes_names_list,
+        'season' : season,
+        'serie' : 'Better Call Saul'
     }
     return render(request, 'episodes.html', context)
 
